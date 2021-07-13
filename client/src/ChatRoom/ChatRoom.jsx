@@ -4,8 +4,8 @@ import "./ChatRoom.css";
 import useChat from "../useChat";
 
 const ChatRoom = (props) => {
-  const { roomId } = props.match.params;
-  const { messages, sendMessage } = useChat(roomId);
+  const { projectId } = props.match.params;
+  const { messages, sendMessage } = useChat(projectId);
   const [newMessage, setNewMessage] = React.useState("");
 
   const handleNewMessageChange = (event) => {
@@ -19,7 +19,7 @@ const ChatRoom = (props) => {
 
   return (
     <div className="chat-room-container">
-      <h1 className="room-name">Room: {roomId}</h1>
+      <h1 className="room-name">Room: {projectId}</h1>
       <div className="messages-container">
         <ol className="messages-list">
           {messages.map((message, i) => (
